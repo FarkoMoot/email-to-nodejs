@@ -22,19 +22,18 @@ const HTML1 =  "<h1>Title</h1><p>paragrafo</p>";// recebe as informaçoes do for
 app.get('/sendmail', (req, res) => {
   var remetente = nodemailer.createTransport({
     host: "smtp.office365.com",
-    //service: "smtp.gmail.com",
     port: 587,
     secure: false,
     auth:{
       //user: "contato.farkomoot@gmail.com",
-      user: "contato.farko_moot@hotmail.com",
-      pass: "c0nt@t06@rk0"
+      user: USER,
+      pass: PASS,
     }
   });
 
   var emailASerEnviado = {
-    from: "contato.farko_moot@hotmail.com",
-    to: "farko_moot@hotmail.com",
+    from: USER,
+    to: EMAIL_TO,
     subject: TITLE,
     html: HTML1,
     text: CONTENT,
