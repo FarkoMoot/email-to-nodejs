@@ -1,35 +1,41 @@
-//const express = require("express");
-import express from 'express'
-//const nodemailer = require("nodemailer");
-import nodemailer from 'nodemailer'
+/*Importaçao usando CommonJS
+const express = require("express")
+const nodemailer = require("nodemailer")
+require('dotenv').config()
+*/
 
-//require('dotenv').config()
+
+/* Usando ESModules ~ Necessario configuraçai adicional */
+import express from 'express'
+import nodemailer from 'nodemailer'
 import * as dotenv from 'dotenv'
 dotenv.config()
 
+const app = express();
+
+/* Variaveis sensiveis */
 const USER = process.env.USER
 const PASS = process.env.PASSORWD
 const EMAIL_TO = process.env.EMAIL_TO
 
-const app = express();
+/* Dados a serem enviados - Informaçoes que vem do FORMULARIO*/
+/* Em desenvolvimento ... */
+const TITLE = "Nome de Site - Form" 
+const CONTENT =  "texto do email"
+const HTML1 =  "<h1>Title</h1><p>paragrafo</p>"
+/* Em desenvolvimento ... */
 
-const TITLE = "Nome de Site - Form"
-//document.querySelector('head > title').textContent
-const CONTENT =  "texto do email";// recebe as informaçoes do form
-const HTML1 =  "<h1>Title</h1><p>paragrafo</p>";// recebe as informaçoes do form
-
-//rota 
+/* Rotas */
 app.get('/sendmail', (req, res) => {
   var remetente = nodemailer.createTransport({
     host: "smtp.office365.com",
     port: 587,
     secure: false,
     auth:{
-      //user: "contato.farkomoot@gmail.com",
       user: USER,
       pass: PASS,
     }
-  });
+  })
 
   var emailASerEnviado = {
     from: USER,
@@ -37,28 +43,20 @@ app.get('/sendmail', (req, res) => {
     subject: TITLE,
     html: HTML1,
     text: CONTENT,
-  };
+  }
 
   remetente.sendMail(emailASerEnviado, function(error){
     if (error) {
-      console.log(error);
+      console.log(error)
     } else {
-      res.status(201).send("Email enviado");
+      res.status(201).send("Email enviado")
     }
-  });
-  /*
-  .then(
-      res.send("email enviado")
-  ).catch(
-      res.send("Error")
-  )
-  */
+  })
 })
 
-//rota de inicializaçao de api OU demais rotas
 app.get('/', (req, res) => {
-    res.send('ok');
+    res.send('Ok')
 })
 
-// possivel setar PORT no .env
-app.listen(3000);
+/* Inicializaçao do servidor */
+app.listen(3000)
