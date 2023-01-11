@@ -1,8 +1,40 @@
-<h1>Enviado email com nodeJS</h1>
+<h1>Enviado email com NodeJS</h1>
+Uma forma nada inovadora de Enviar Email usadno NodeJs
 
 <h2>Configuraçoes e Plugins</h2>
+-(Opcinal) Come no arquivo 
+
+Começaremos com as instalaçoes das dependencias
+
+-[dotenv](https://www.npmjs.com/package/dotenv) e uma exte
+Crie um arquivo '''.env''' onde serao alocadas as variaveis sensiveis.
+
+Instalaçao:
+
+'''
+npm i dotenv --save
+'''
+
+Conforme documentaçao da propria extençao, segue exemplo de configuraçao basica do arquivo '''.env''':
+
+'''
+USER="seuemail@envia.com"
+PASS="password_email_que_envia"
+EMAIL_TO="seuemail@recebe.com"
+'''
+
+Recomendamos a criaçao de um email e uma senha aleatoria para preencher essas informaçoes, considerando que o email deva ser Outlook.
+
+-[express](https://expressjs.com/pt-br/) e um framework para criaçao de Api.
+
+Instalaçao:
+
+'''
+npm i dotenv --save
+'''
+
+
 
 <h2>Variaveis e Rotas</h2>
 
 <h2>Exemplo</h2>
-
