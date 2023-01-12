@@ -11,7 +11,9 @@ Crie um arquivo <code>.env</code> onde serao alocadas as variaveis sensiveis.
 
 Instalaçao:
 
-```npm i dotenv --save```
+```
+npm i dotenv --save
+```
 
 Conforme documentaçao da propria extençao, segue exemplo de configuraçao basica do arquivo <code>.env</code>:
 
