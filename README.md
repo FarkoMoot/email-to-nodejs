@@ -7,19 +7,19 @@ Uma forma nada inovadora de Enviar Email usadno NodeJs
 Começaremos com as instalaçoes das dependencias
 
 -[dotenv](https://www.npmjs.com/package/dotenv) e uma exte
-Crie um arquivo '''.env''' onde serao alocadas as variaveis sensiveis.
+Crie um arquivo <code>.env</code> onde serao alocadas as variaveis sensiveis.
 
 Instalaçao:
 
 <code>npm i dotenv --save</code>
 
-Conforme documentaçao da propria extençao, segue exemplo de configuraçao basica do arquivo '''.env''':
+Conforme documentaçao da propria extençao, segue exemplo de configuraçao basica do arquivo <code>.env</code>:
 
-'''
+<code>
 USER="seuemail@envia.com"
 PASS="password_email_que_envia"
 EMAIL_TO="seuemail@recebe.com"
-'''
+</code>
 
 Recomendamos a criaçao de um email e uma senha aleatoria para preencher essas informaçoes, considerando que o email deva ser Outlook.
 
@@ -27,9 +27,9 @@ Recomendamos a criaçao de um email e uma senha aleatoria para preencher essas i
 
 Instalaçao:
 
-'''
+<code>
 npm i dotenv --save
-'''
+</code>
 
 
 
