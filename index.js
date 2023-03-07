@@ -2,32 +2,37 @@
 const express = require("express")
 const nodemailer = require("nodemailer")
 require('dotenv').config()
+const bodyparser = require('body-parser')
 */
-
 
 /* Usando ESModules ~ Necessario configuraçai adicional */
 import express from 'express'
 import nodemailer from 'nodemailer'
 import * as dotenv from 'dotenv'
 dotenv.config()
-
-const app = express();
+import bodyparser from 'body-parser'
 
 /* Variaveis sensiveis */
 const USER = process.env.USER
-const PASS = process.env.PASSORWD
+const PASS = process.env.PASS
 const EMAIL_TO = process.env.EMAIL_TO
 
-/* Dados a serem enviados - Informaçoes que vem do FORMULARIO*/
-/* Em desenvolvimento ... */
-const TITLE = "Nome de Site - Form" 
-const CONTENT =  "texto do email"
-const HTML1 =  "<h1>Title</h1><p>paragrafo</p>"
-/* Em desenvolvimento ... */
+const app = express();
+app.use(bodyparser.urlencoded({ extended: false }))
+app.use(bodyparser.json())
 
-/* Rotas */
-app.get('/sendmail', (req, res) => {
-  var remetente = nodemailer.createTransport({
+/* Rota de envio de email */
+app.post('/sendmail', (req, res) => {
+  
+  //req.body com as informaçoes do formulario
+  const { nome, email, telefone, mensagem } = req.body
+  //montando mensagem a ser enviada
+  const TITLE = "Contato Gustavo - Site Portifolio" 
+  const CONTENT =  `${nome}, com email:${email} e telefone:${telefone}, mandou uma mensagem: ${mensagem}`
+  const HTML1 = `<h2>${nome}</h2> <br/><h3>${email}</h3><br/><h3>${telefone}</h3><br/><p>${mensagem}</p>`
+
+  //configurando nodemailer
+  const remetente = nodemailer.createTransport({
     host: "smtp.office365.com",
     port: 587,
     secure: false,
@@ -36,26 +41,26 @@ app.get('/sendmail', (req, res) => {
       pass: PASS,
     }
   })
-
-  var emailASerEnviado = {
+  
+  const emailASerEnviado = {
     from: USER,
     to: EMAIL_TO,
     subject: TITLE,
     html: HTML1,
-    text: CONTENT,
+    //text: CONTENT,
   }
-
+  
   remetente.sendMail(emailASerEnviado, function(error){
     if (error) {
       console.log(error)
     } else {
-      res.status(201).send("Email enviado")
+      res.status(201).send("Email enviado!")
     }
   })
 })
 
 app.get('/', (req, res) => {
-    res.send('Ok')
+  res.send('Ok')
 })
 
 /* Inicializaçao do servidor */
