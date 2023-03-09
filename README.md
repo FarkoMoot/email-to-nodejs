@@ -22,7 +22,7 @@ npm i dotenv express nodemailer body-parser --save
 
 <h3>Importaçao e Configuração:</h3>
 
-No arquivo <code>packge.json</code> adicionar um <code>"type": "module"</code>, para setar o ESModule como importaçao padrão.
+No arquivo <code>packge.json</code> adicionar um <code>"type": "module"</code>, para setar o ESModule como importaçao padrão. Conforme [Doc](https://nodejs.org/api/packages.html#determining-module-system) do Node
 
 No arquivo Index.js faremos as configuraçoes basicas assim:
 
