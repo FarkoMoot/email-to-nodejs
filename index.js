@@ -11,15 +11,18 @@ import nodemailer from 'nodemailer'
 import * as dotenv from 'dotenv'
 dotenv.config()
 import bodyparser from 'body-parser'
+import ejs from 'ejs'
 
 /* Variaveis sensiveis */
 const USER = process.env.USER
 const PASS = process.env.PASS
 const EMAIL_TO = process.env.EMAIL_TO
+const DIRNAME = process.env.DIRNAME
 
 const app = express();
 app.use(bodyparser.urlencoded({ extended: false }))
 app.use(bodyparser.json())
+app.set('view engine', 'html');
 
 /* Rota de envio de email */
 app.post('/sendmail', (req, res) => {
@@ -60,7 +63,8 @@ app.post('/sendmail', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-  res.send('Ok')
+  //res.render('/index.html')
+  res.sendFile(DIRNAME + '/index.html')
 })
 
 /* Inicializaçao do servidor */
