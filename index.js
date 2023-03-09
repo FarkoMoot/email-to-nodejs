@@ -17,6 +17,7 @@ const USER = process.env.USER
 const PASS = process.env.PASS
 const EMAIL_TO = process.env.EMAIL_TO
 const DIRNAME = process.env.DIRNAME
+const PATH = DIRNAME + '/index.html'
 
 const app = express();
 app.use(bodyparser.urlencoded({ extended: false }))
@@ -63,7 +64,7 @@ app.post('/sendmail', (req, res) => {
 
 app.get('/', (req, res) => {
   //res.render('/index.html')
-  res.sendFile(DIRNAME + '/index.html')
+  res.sendFile(PATH)
 })
 
 /* Inicializaçao do servidor */
