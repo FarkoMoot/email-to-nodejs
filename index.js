@@ -11,7 +11,6 @@ import nodemailer from 'nodemailer'
 import * as dotenv from 'dotenv'
 dotenv.config()
 import bodyparser from 'body-parser'
-import ejs from 'ejs'
 
 /* Variaveis sensiveis */
 const USER = process.env.USER
