@@ -65,7 +65,8 @@ app.post('/sendmail', (req, res) => {
 app.get('/', (req, res) => {
   //res.render(PATH2)
   //res.sendFile(PATH)
-  res.sendFile('./index.html', { root: DIRNAME })
+  //res.sendFile('./index.html', { root: DIRNAME })
+  res.sendFile('/home/ubuntu/apps/web-portifolio/index.html')
 })
 
 /* Inicializaçao do servidor */
