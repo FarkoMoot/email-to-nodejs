@@ -63,8 +63,9 @@ app.post('/sendmail', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-  //res.render('/index.html')
-  res.sendFile(PATH)
+  //res.render(PATH2)
+  //res.sendFile(PATH)
+  res.sendFile('/index.html', { root: DIRNAME })
 })
 
 /* Inicializaçao do servidor */
