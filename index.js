@@ -11,14 +11,14 @@ import nodemailer from 'nodemailer'
 import * as dotenv from 'dotenv'
 dotenv.config()
 import bodyparser from 'body-parser'
-import path from 'node:path'
+//import path from 'node:path'
 
 /* Variaveis sensiveis */
 const USER = process.env.USER
 const PASS = process.env.PASS
 const EMAIL_TO = process.env.EMAIL_TO
 const DIRNAME = process.env.DIRNAME
-const PATH = path.basename(DIRNAME);
+const PATH = DIRNAME
 
 const app = express();
 app.use(bodyparser.urlencoded({ extended: false }))
