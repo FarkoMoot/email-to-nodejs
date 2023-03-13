@@ -67,10 +67,8 @@ app.get('/teste', (req, res) => {
   //res.render(PATH2)
   //res.sendFile('./index.html', { root: DIRNAME })
   //res.sendFile('/home/ubuntu/apps/web-portifolio/index.html')
-  res.sendFile(PATH)
+  res.sendFile(DIRNAME, {root: '/'})
 })
-
-
 
 app.get('/', (req, res) => {
   //res.render(PATH2)
