@@ -11,13 +11,14 @@ import nodemailer from 'nodemailer'
 import * as dotenv from 'dotenv'
 dotenv.config()
 import bodyparser from 'body-parser'
+import path from 'node:path'
 
 /* Variaveis sensiveis */
 const USER = process.env.USER
 const PASS = process.env.PASS
 const EMAIL_TO = process.env.EMAIL_TO
 const DIRNAME = process.env.DIRNAME
-const PATH = DIRNAME + '/index.html'
+const PATH = path.basename(DIRNAME);
 
 const app = express();
 app.use(bodyparser.urlencoded({ extended: false }))
@@ -66,8 +67,10 @@ app.get('/teste', (req, res) => {
   //res.render(PATH2)
   //res.sendFile('./index.html', { root: DIRNAME })
   //res.sendFile('/home/ubuntu/apps/web-portifolio/index.html')
-  res.sendFile(DIRNAME)
+  res.sendFile(PATH)
 })
+
+
 
 app.get('/', (req, res) => {
   //res.render(PATH2)
