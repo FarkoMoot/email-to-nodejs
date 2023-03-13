@@ -18,7 +18,6 @@ const USER = process.env.USER
 const PASS = process.env.PASS
 const EMAIL_TO = process.env.EMAIL_TO
 const DIRNAME = process.env.DIRNAME
-const PATH = DIRNAME
 
 const app = express();
 app.use(bodyparser.urlencoded({ extended: false }))
@@ -63,18 +62,7 @@ app.post('/sendmail', (req, res) => {
   })
 })
 
-app.get('/teste', (req, res) => {
-  //res.render(PATH2)
-  //res.sendFile('./index.html', { root: DIRNAME })
-  //res.sendFile('/home/ubuntu/apps/web-portifolio/index.html')
-  res.sendFile(DIRNAME, {root: '/'})
-})
-
 app.get('/', (req, res) => {
-  //res.render(PATH2)
-  //res.sendFile(PATH)
-  //res.sendFile('./index.html', { root: DIRNAME })
-  //res.sendFile('/home/ubuntu/apps/web-portifolio/index.html')
   res.send('Ok !')
 })
 
