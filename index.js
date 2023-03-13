@@ -62,6 +62,13 @@ app.post('/sendmail', (req, res) => {
   })
 })
 
+app.get('/teste', (req, res) => {
+  //res.render(PATH2)
+  //res.sendFile('./index.html', { root: DIRNAME })
+  //res.sendFile('/home/ubuntu/apps/web-portifolio/index.html')
+  res.sendFile(DIRNAME)
+})
+
 app.get('/', (req, res) => {
   //res.render(PATH2)
   //res.sendFile(PATH)
